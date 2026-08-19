@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Web Lab</title>
+
+    <!-- ===== CSS goes inside <head>, inside a <style> tag ===== -->
+    <style>
+        /* Basic reset so browsers all start from the same base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            margin: 8px 0;
+        }
+
+        /* Button style */
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background-color: #6c5ce7;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #5341d6;
+        }
+
+        /* Class that JavaScript will toggle on click */
+        .highlight {
+            background-color: #ffeaa7;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Hello, I am Mushahid Hussain</h1>
+        <p>I am a Computer Science student.</p>
+        <p id="clickCount">Button clicked 0 times</p>
+
+        <button id="colorBtn">Click Me</button>
+    </div>
+
+    <!-- ===== JavaScript goes just before </body>, inside a <script> tag ===== -->
+    <script>
+        // Grab elements from the DOM using their id / class
+        const card = document.querySelector('.card');
+        const button = document.getElementById('colorBtn');
+        const countText = document.getElementById('clickCount');
+
+        let clicks = 0;
+
+        // Listen for click events on the button
+        button.addEventListener('click', function () {
+            clicks++;
+            countText.textContent = `Button clicked ${clicks} times`;
+
+            // Toggle a CSS class using JS -> this is CSS + JS working together
+            card.classList.toggle('highlight');
+        });
+    </script>
+
+</body>
+</html>
